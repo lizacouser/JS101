@@ -1,8 +1,21 @@
 /*
 
-Log all odd numbers from 1 to 99, inclusive, to the console, 
+Log all odd numbers from 1 to 99, inclusive, to the console,
 with each number on a separate line.
 
+*/
+
+let logOddNumbers = () => {
+  for (let num = 1; num <= 99; num += 2) {
+    console.log(num);
+  }
+};
+
+logOddNumbers(); // returns 1, 3, 5, 7, ..., 99
+logOddNumbers(10); // returns 1, 3, 5, 7, ..., 99
+logOddNumbers('liza'); // returns 1, 3, 5, 7, ..., 99
+
+/*
 Understanding the Problem:
 -input: n/a
 -output: odd numbers 1-99 on console with line breaks between each number
@@ -29,13 +42,3 @@ WHILE num <= 99
 END
 
 */
-
-let logOddNumbers = () => {
-  for (let num = 1; num <= 99; num += 2){
-    console.log(num);
-  }
-}
-
-logOddNumbers() // returns 1, 3, 5, 7, ..., 99
-logOddNumbers(10) // returns 1, 3, 5, 7, ..., 99
-logOddNumbers('liza') // returns 1, 3, 5, 7, ..., 99

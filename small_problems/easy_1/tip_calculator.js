@@ -1,15 +1,3 @@
-
-let rlSync = require('readline-sync');
-
-let billAmount = Number(rlSync.question('What is the bill? '));
-let tipRate = Number(rlSync.question('What percentage is your tip rate? '));
-
-let tipAmount = (billAmount * (tipRate / 100));
-let totalPrice = (billAmount + tipAmount);
-
-console.log(`The tip is $${tipAmount.toFixed(2)}. \nThe total is $${totalPrice.toFixed(2)}.`)
-
-
 /*
 Create a simple tip calculator. The program should prompt
 for a bill amount and a tip rate.
@@ -26,8 +14,20 @@ What is the tip percentage? 15
 
 The tip is $30.00
 The total is $230.00
+*/
+
+let rlSync = require('readline-sync');
+
+let billAmount = Number(rlSync.question('What is the bill? '));
+let tipRate = Number(rlSync.question('What percentage is your tip rate? '));
+
+let tipAmount = (billAmount * (tipRate / 100));
+let totalPrice = (billAmount + tipAmount);
+
+console.log(`The tip is $${tipAmount.toFixed(2)}. \nThe total is $${totalPrice.toFixed(2)}.`);
 
 
+/*
 Problem:
 -Input
   -user input bill amount (number)

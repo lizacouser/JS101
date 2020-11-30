@@ -1,3 +1,4 @@
+
 /*
 
 Build a program that asks the user
@@ -10,6 +11,37 @@ Note: 1 square meter == 10.7639 square feet
 Do not worry about validating the input at this time.
 Use the readlineSync.prompt method to collect user input.
 
+*/
+
+let rlSync = require('readline-sync');
+const SQ_M_TO_SQ_FT = 10.7639;
+
+let lengthInM = Number(rlSync.question('Enter the length of the room in meters:'));
+let widthInM = Number(rlSync.question('Enter the width of the room in meters:'));
+
+
+//with more abstration
+let calculateArea = (length, width) => length * width;
+let convertToSqFt = (areaInMeters) => areaInMeters * SQ_M_TO_SQ_FT;
+
+let getYourArea = () => {
+  let areaInSqMeters = calculateArea(lengthInM, widthInM);
+  let areaInSqFt = convertToSqFt(areaInSqMeters);
+  console.log(`The area of the room is ${areaInSqMeters} square meters (${areaInSqFt} square feet).`);
+};
+
+getYourArea();
+
+//with less abstraction:
+let areaInSqMeters = lengthInM * widthInM;
+let areaInSqFt = areaInSqMeters * SQ_M_TO_SQ_FT;
+
+console.log(`The area of the room is ${areaInSqMeters} square meters (${areaInSqFt} square feet).`);
+
+//NOTE: I could use Number.prototype.toFixed(2) to truncate after 2 decimal pl
+
+
+/*
 
 Problem:
 -input:
@@ -59,36 +91,8 @@ SET areaInSqFt = areaInSqMeters * sqMetersToSqFt
 PRINT `The area of the room is ${areaInSqMeters} sq m (${areaInSqFt} sq ft).`
 END
 
-*/
+...
 
-let rlSync = require('readline-sync');
-const SQ_M_TO_SQ_FT = 10.7639;
-
-let lengthInM = Number(rlSync.question('Enter the length of the room in meters:'));
-let widthInM = Number(rlSync.question('Enter the width of the room in meters:'));
-
-
-//with more abstration
-let calculateArea = (length, width) => length * width;
-let convertToSqFt = (areaInMeters) => areaInMeters * SQ_M_TO_SQ_FT;
-
-let getYourArea = () => {
-  let areaInSqMeters = calculateArea(lengthInM, widthInM);
-  let areaInSqFt = convertToSqFt(areaInSqMeters);
-  console.log(`The area of the room is ${areaInSqMeters} square meters (${areaInSqFt} square feet).`);
-};
-
-getYourArea();
-
-//with less abstraction:
-let areaInSqMeters = lengthInM * widthInM;
-let areaInSqFt = areaInSqMeters * SQ_M_TO_SQ_FT;
-
-console.log(`The area of the room is ${areaInSqMeters} square meters (${areaInSqFt} square feet).`);
-
-//NOTE: I could use Number.prototype.toFixed(2) to truncate after 2 decimal pl
-
-/*
 Modify the program so that it asks the user for the input type
 (meters or feet). Compute for the area accordingly,
 and log it and its conversion in parentheses.
