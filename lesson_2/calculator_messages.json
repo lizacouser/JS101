@@ -1,0 +1,42 @@
+
+{
+  "askLanguage" : "Welcome to Calculator! \nTo continue in English enter 'en'. \nPara Español ingrese 'es'. \nPour le Français entrez 'fr'.",
+  "invalidLanguage" : "Try again. \nTo continue in English enter 'en'. \nPara Español ingrese 'es'. \nPour le Français entrez 'fr'.",
+
+  "en" : {
+    "greeting" : "You're in!",
+    "askForFirstNumber" : "What's the first number?",
+    "askForSecondNumber" : "What's the second number?",
+    "invalidNumber" : "Hmm... that doesn't look like a valid number. Try again.",
+    "askForOperation" : "What operation would you like to perform? \n1) Add 2) Subtract 3) Multiply 4) Divide",
+    "invalidOperation" : "Must choose 1, 2, 3, or 4. Try again.",
+    "resultAndRepeat" : "The result is RESULT. Would you like to do another calculation? \n1) Yes 2) No",
+    "resultError" : "The result is undefined. Would you like to do another calculation? \n1) Yes 2) No",
+    "invalidYesOrNo" : "Must respond with 1 or 2. Try again."
+  },
+
+  "es" : {
+    "greeting" : "¡Bienvenido a Calculadora!",
+    "askForFirstNumber" : "¿Cuál es el primer número?",
+    "askForSecondNumber" : "¿Cuál es el segundo número?",
+    "invalidNumber" : "Hmm ... eso no parece un número válido. Inténtalo de nuevo.",
+    "askForOperation" : "¿Qué operación le gustaría realizar? \n1) Sumar 2) Restar 3) Multiplicar 4) Dividir",
+    "invalidOperation" : "Debe elegir 1, 2, 3 o 4. Vuelva a intentarlo.",
+    "resultAndRepeat" : "El resultado es RESULT. ¿Le gustaría hacer otro cálculo? \n1) Si 2) No",
+    "resultError" : "El resultado es indefinido. ¿Le gustaría hacer otro cálculo? \n1) Si 2) No",
+    "invalidYesOrNo" : "Debe responder con 1 o 2. Inténtalo de nuevo."
+  },
+
+  "fr" : {
+    "greeting" : "Bienvenue dans Calculatrice!",
+    "askForFirstNumber": "Quel est le premier numéro?",
+    "askForSecondNumber": "Quel est le deuxième numéro?",
+    "invalidNumber": "Hmm ... cela ne ressemble pas à un numéro valide. Réessayez.",
+    "askForOperation": "Quelle opération souhaitez-vous effectuer? \n1) Ajouter 2) Soustraire 3) Multiplier 4) Diviser",
+    "invalidOperation": "Vous devez choisir 1, 2, 3 ou 4. Réessayez.",
+    "resultAndRepeat": "Le résultat est RESULT. Souhaitez-vous effectuer un autre calcul? \n1) Oui 2) Non",
+    "resultError" : "Le résultat est indéfini. Souhaitez-vous effectuer un autre calcul? \n1) Oui 2) Non",
+    "invalidYesOrNo": "Doit répondre par 1 ou 2. Réessayez."
+  }
+
+}
