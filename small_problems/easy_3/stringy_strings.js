@@ -12,6 +12,27 @@ stringy(4);    // "1010"
 stringy(7);    // "1010101"
 */
 
+function stringy(length) {
+  let resultString = '';
+  for (let iter = 0; iter < length; iter += 1) {
+    if (iter % 2 === 0) {
+      resultString += '1';
+    } else {
+      resultString += '0';
+    }
+    // alternatively logic
+    // let number = ((idx % 2) === 0) ? 1 : 0;
+    // result += number;
+  }
+  console.log(resultString);
+}
+
+stringy(6);    // "101010"
+stringy(9);    // "101010101"
+stringy(4);    // "1010"
+stringy(7);    // "1010101"
+stringy(0);    // ""
+
 /*
 Problem:
 -input
@@ -34,24 +55,3 @@ Algorithm:
   -if even iteration, result += '1'
   -if odd iteration, result += '0'
 */
-
-function stringy(length) {
-  let resultString = '';
-  for (let iter = 0; iter < length; iter += 1) {
-    if (iter % 2 === 0) {
-      resultString += '1';
-    } else {
-      resultString += '0';
-    }
-    // alternatively logic
-    // let number = ((idx % 2) === 0) ? 1 : 0;
-    // result += number;
-  }
-  console.log(resultString);
-}
-
-stringy(6);    // "101010"
-stringy(9);    // "101010101"
-stringy(4);    // "1010"
-stringy(7);    // "1010101"
-stringy(0);    // ""

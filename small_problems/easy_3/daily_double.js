@@ -13,36 +13,6 @@ crunch('');                           // ""
 
 */
 
-/*
-Problem:
--input
-  -string with possible duplicate characters
--output
-  -new string with duplicate characters removed
--internal
-  -if letter is not a duplicate, keep it in
-  -if empty string, return empty string
-  -only matters if the letters are next to each other (leters vs letrs)
-
-Examples:
--see above
--should not take non-strings
--should remove duplicate letter even if one duplicate is capitalized
-
-Datatypes:
--input string
--output string
--internal
-  -we want to loop through and remove elements, so i think arrays
-
-Algorithm:
--given a string
--if not a string return invalid;
--split string into array of characters
--reduce array (accumulator is the new array)
--join array and return
-  */
-
 let crunch = string => {
   if (typeof string !== 'string') return 'Invalid string';
 
@@ -72,3 +42,33 @@ function crunch2(string) {
 }
 
 console.log(crunch2('ddaaiillyy ddoouubbllee'));
+
+/*
+Problem:
+-input
+  -string with possible duplicate characters
+-output
+  -new string with duplicate characters removed
+-internal
+  -if letter is not a duplicate, keep it in
+  -if empty string, return empty string
+  -only matters if the letters are next to each other (leters vs letrs)
+
+Examples:
+-see above
+-should not take non-strings
+-should remove duplicate letter even if one duplicate is capitalized
+
+Datatypes:
+-input string
+-output string
+-internal
+  -we want to loop through and remove elements, so i think arrays
+
+Algorithm:
+-given a string
+-if not a string return invalid;
+-split string into array of characters
+-reduce array (accumulator is the new array)
+-join array and return
+  */

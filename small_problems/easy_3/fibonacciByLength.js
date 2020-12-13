@@ -15,6 +15,32 @@ You may assume that the argument is always
 an integer greater than or equal to 2.
 */
 
+function fibonacciIndexByLength(numDigits) {
+  let index = 1;
+  let firstNumber = 0;
+  let secondNumber = 1;
+  let fibNum;
+
+  while (true) {
+    fibNum = firstNumber + secondNumber;
+    index += 1;
+    firstNumber = secondNumber;
+    secondNumber = fibNum;
+
+    if (Math.floor(fibNum / (10 ** (numDigits - 1))) > 0) {
+      break;
+      // String(fibNum).length < numDigits also works here
+    }
+
+    if (secondNumber === firstNumber && secondNumber > 1) {
+      return "This result isn't reliable";
+    }
+  }
+  return index;
+}
+
+console.log(fibonacciIndexByLength(100));
+
 /*
 Problem:
 -input
@@ -54,37 +80,10 @@ Abstraction:
   -index 3 = index 2 + index 1
   -index 4 = index 2 + index 3
   etc.
--aka it's recursive, but recursive run time too long. 
+-aka it's recursive, but recursive run time too long.
 just remember last added values in loop.
 
 -given an index
 -if inded < 2 return index
 -else return fibonacci(index - 1) + fibonacci(index - 2)
 */
-
-
-function fibonacciIndexByLength(numDigits) {
-  let index = 1;
-  let firstNumber = 0;
-  let secondNumber = 1;
-  let fibNum;
-
-  while (true) {
-    fibNum = firstNumber + secondNumber;
-    index += 1;
-    firstNumber = secondNumber;
-    secondNumber = fibNum;
-
-    if (Math.floor(fibNum / (10 ** (numDigits - 1))) > 0) {
-      break;
-      // String(fibNum).length < numDigits also works here
-    }
-
-    if (secondNumber === firstNumber && secondNumber > 1) {
-      return "This result isn't reliable";
-    }
-  }
-  return index;
-}
-
-console.log(fibonacciIndexByLength(100));
