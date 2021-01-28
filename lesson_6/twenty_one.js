@@ -26,11 +26,11 @@ function initializeDeck() {
     for (let nameIndex = 0; nameIndex < CARD_NAMES.length; nameIndex += 1) {
       let card = CARD_NAMES[nameIndex];
       if (card === 'Ace') {
-        deck.push([`${card} of ${suit}`, HIGH_ACE_VALUE]); // ['Ace', 'Hearts', 11]
+        deck.push([`${card} of ${suit}`, HIGH_ACE_VALUE]); // ['Ace of Hearts', 11]
       } else if (['Jack', 'Queen', 'King'].includes(card)) {
-        deck.push([`${card} of ${suit}`, FACE_VALUE]); // ['King', 'Clubs', 10]
+        deck.push([`${card} of ${suit}`, FACE_VALUE]); // ['King of Clubs', 10]
       } else {
-        deck.push([`${card} of ${suit}`, card]); // for numbers, [8, 'Spades', 8]
+        deck.push([`${card} of ${suit}`, card]); // for numbers, ['8 of Spades', 8]
       }
     }
   }
