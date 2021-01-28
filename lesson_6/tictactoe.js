@@ -18,7 +18,7 @@ function prompt(message) {
   console.log(`=> ${message}`);
 }
 
-// Initialize match score tracker
+// Initialize score tracker
 function initializeMatch() {
   let scores = {};
 
@@ -84,7 +84,7 @@ function displayBoard(board) {
 
 // Log match score
 function displayScores(scores) {
-  prompt(`Game #${scores['gameCount']}.`);
+  prompt(`Game #${scores['gameCount']}. First one to win ${GAMES_TO_WIN_MATCH} games wins.`);
   prompt(`Player: ${scores.player}. Computer: ${scores.computer}.`);
 }
 
@@ -166,7 +166,7 @@ function getWinningMove(winningLine, board, moveType) {
 
   if (boardLine.filter(mark => mark === searchMarker).length === 2) {
     let emptySquare = winningLine.find(sq => board[sq] === EMPTY_MARKER);
-    if (emptySquare !== undefined) {
+    if (emptySquare) {
       return emptySquare;
     }
   }
@@ -233,6 +233,22 @@ function getMatchWinner(scores) {
   }
 }
 
+function playAgain(gameOrMatch) {
+  if (gameOrMatch === 'game') {
+    prompt("Want to keep playing? (y/n)");
+  } else if (gameOrMatch === 'match') {
+    prompt("Would you like to start a new match? (y/n)");
+  }
+
+  let playAgain = READLINE.question().toLowerCase();
+  while (!['y', 'n', 'yes', 'no'].includes(playAgain)) {
+    prompt('Invalid input. Try again:');
+    playAgain = READLINE.question().toLowerCase();
+  }
+
+  return playAgain[0] === 'y';
+}
+
 
 // Game play loop
 while (true) {
@@ -264,30 +280,15 @@ while (true) {
     displayScores(matchScore);
     matchScore.gameCount += 1;
 
-    if (isMatchWinner(matchScore)) break;
-
-    prompt("Want to keep playing? (y/n)");
-    let playAgain = READLINE.question().toLowerCase();
-    while (!['y', 'n', 'yes', 'no'].includes(playAgain)) {
-      prompt('Invalid input. Try again:');
-      playAgain = READLINE.question().toLowerCase();
+    if (isMatchWinner(matchScore)) {
+      prompt(`${getMatchWinner(matchScore)} wins the match!`.toUpperCase());
+      break;
     }
 
-    if (playAgain !== 'y') break;
+    if (!playAgain('game')) break;
   }
 
-  if (isMatchWinner(matchScore)) {
-    prompt(`${getMatchWinner(matchScore)} wins the match!`.toUpperCase());
-  }
-
-  prompt("Would you like to start a new match? (y/n)");
-  let newMatch = READLINE.question().toLowerCase();
-  while (!['y', 'n', 'yes', 'no'].includes(newMatch)) {
-    prompt('Please enter y or n. Try again:');
-    newMatch = READLINE.question().toLowerCase();
-  }
-
-  if (newMatch !== 'y') break;
+  if (!playAgain('match')) break;
 }
 
 prompt('Thanks for playing Tic Tac Toe!');
