@@ -159,10 +159,10 @@ function getHandSum(hand) {
 }
 
 function busted(hand) {
-  return getHandSum(hand) > 21;
+  return getHandSum(hand) > BUST_VALUE;
 }
 
-function displayEndResults(hands) {
+function displayGameResults(hands) {
   console.log('----------------');
   displayAllCards(hands);
   displayWinner(hands);
@@ -218,7 +218,7 @@ function dealerTurn(deck, hands) {
   }
 }
 
-function initializeMatch() {
+function initializeMatchScore() {
   let score = {};
   score['player'] = 0;
   score['dealer'] = 0;
@@ -231,8 +231,8 @@ function isMatchWinner(score) {
 }
 
 function getMatchWinner(score) {
-  let winner = Object.entries(score).find(subArray => {
-    return subArray[1] === SCORE_TO_WIN;
+  let winner = Object.entries(score).find(cardHolderData => {
+    return cardHolderData[1] === SCORE_TO_WIN;
   });
   if (winner) {
     return winner[0];
@@ -251,7 +251,7 @@ function logScore(score) {
 
 // Game Play
 while (true) {
-  let score = initializeMatch();
+  let score = initializeMatchScore();
 
   while (true) {
     let deck = initializeDeck();
@@ -259,6 +259,7 @@ while (true) {
 
     console.clear();
     prompt('Welcome to Twenty-One!');
+    prompt(`First person to ${SCORE_TO_WIN} games wins!`)
 
     logScore(score);
 
@@ -273,15 +274,14 @@ while (true) {
 
       dealerTurn(deck, hands);
 
-      if (busted(hands.dealer)) {
-        break;
-      } else {
+      if (!busted(hands.dealer)) {
         prompt("Dealer stays... Let's compare scores");
-        break;
       }
+
+      break;
     }
 
-    displayEndResults(hands);
+    displayGameResults(hands);
     score[getWinner(hands)] += 1;
 
     if (isMatchWinner(score)) {
@@ -295,9 +295,6 @@ while (true) {
 }
 
 prompt('Thanks for playing! Goodbye.');
-
-
-
 
 
 /*
